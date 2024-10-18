@@ -1,0 +1,246 @@
+
+/* || CSS RESET */
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+:root{
+    /* Color */
+    --LIGHT-COLOR:white;
+}
+
+
+/* Basic Header Styles */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #553105;
+    color: var(--LIGHT-COLOR);
+    position: relative;
+    top: 0;
+    z-index: 1000; 
+}
+
+
+/* Logo Styles */
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+
+/* Basic Navigation Styles */
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    flex-flow: row nowrap;
+}
+
+nav a:any-link{
+    color: wheat;
+    text-decoration: none;
+}
+
+nav :is(a:hover, a:focus){   /* pseudo class  :is  for hover and focus -- D.R.Y rule */
+    filter: brightness(1.2);
+    color: #915b19ea;
+}
+
+
+/* Hide Checkbox for Hamburger Toggle */
+
+.menu-toggle {
+    display: none;
+}
+
+
+/* Hamburger Menu Icon */
+
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    height: 3px;
+    width: 25px;
+    background: var(--LIGHT-COLOR);
+    margin: 5px 0;
+    transition: 0.4s;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+/* call to action button */
+
+.cta .button{
+    background-color: #b38663;
+    color: var(--LIGHT-COLOR);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.cta .button:hover {
+    background-color: hwb(24 37% 11% / 0.711);
+}
+
+/* Responsive Styles for Mobile */
+
+@media (max-width: 768px) {
+    /* Hide the normal navigation and display the hamburger icon */
+    .main-nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: #333;
+        padding: 20px;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        left: 250px;
+        width: 200px;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    /* Toggle menu display when checkbox is checked */
+    .menu-toggle:checked + .menu-icon + .main-nav ul {
+        display: flex;
+    }
+
+    /* Hamburger animation when toggled */
+    .menu-toggle:checked + .menu-icon span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 8px);
+    }
+
+    .menu-toggle:checked + .menu-icon span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked + .menu-icon span:nth-child(3) {
+        transform: rotate(-45deg) translate(10px, -8px);
+    }
+}
+
+
+
+/* Basic Hero Section Styling */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    padding: 0 20px;
+}
+
+/* Hero Content Styling */
+.hero-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 20px;
+}
+
+/* Text Section */
+.hero-text {
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Image Section */
+.hero-image img {
+    max-width: 400px;
+    border-radius: 200px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 36px;
+    }
+
+    .hero-image img {
+        max-width: 300px;
+    }
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #553105;
+    background: url('/images/BackImage.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    padding: 0 20px;
+    color: var(--LIGHT-COLOR); /* Change text color to white for better contrast */
+}
+
+/* Footer Section*/
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(252,230,224, 0.909);
+    color: #333;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer a:any-link {
+    color: #553105;
+}
+
+footer :is(:hover, :focus){
+    filter: brightness(1.2);
+}
+
+
+

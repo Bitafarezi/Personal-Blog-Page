@@ -1,0 +1,223 @@
+
+/* || CSS RESET */
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+:root{
+    /* Color */
+    --LIGHT-COLOR:white;
+}
+
+
+/* Basic Header Styles */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #553105;
+    color: var(--LIGHT-COLOR);
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
+}
+
+/* Basic Navigation Styles */
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    flex-flow: row nowrap;
+}
+
+nav a:any-link{
+    color: wheat;
+    text-decoration: none;
+}
+
+nav :is(a:hover, a:focus){   /* pseudo class  :is  for hover and focus -- D.R.Y rule */
+    filter: brightness(1.2);
+    color: #915b19ea;
+}
+
+
+/* Hide Checkbox for Hamburger Toggle */
+
+.menu-toggle {
+    display: none;
+}
+
+
+/* Hamburger Menu Icon */
+
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    height: 3px;
+    width: 25px;
+    background: var(--LIGHT-COLOR);
+    margin: 5px 0;
+    transition: 0.4s;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+/* call to action button */
+
+.cta .button{
+    background-color: #b38663;
+    color: var(--LIGHT-COLOR);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.cta .button:hover {
+    background-color: hwb(24 37% 11% / 0.711);
+}
+
+/* Responsive Styles for Mobile */
+
+@media (max-width: 768px) {
+    /* Hide the normal navigation and display the hamburger icon */
+    .main-nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: #553105f8;
+        border: 1px solid rgb(97, 62, 15);
+        padding: 20px;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        left: 10px;
+        width: 200px;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    /* Toggle menu display when checkbox is checked */
+    .menu-toggle:checked + .menu-icon + .main-nav ul {
+        display: flex;
+    }
+
+    /* Hamburger animation when toggled */
+    .menu-toggle:checked + .menu-icon span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 8px);
+    }
+
+    .menu-toggle:checked + .menu-icon span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked + .menu-icon span:nth-child(3) {
+        transform: rotate(-45deg) translate(10px, -8px);
+    }
+}
+
+body {
+    background: linear-gradient(90deg, rgb(210, 180, 140), rgb(229, 170, 112));
+    background:url("/images/BackImage.jpg") no-repeat center center/cover ;
+    background-attachment: fixed;
+}
+
+
+/* Basic About Me Section Styling */
+
+.div, .about {
+    padding: 60px 20px;
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+    color: #553105;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+.about h2 {
+    font-size: 36px;
+    color: rgb(75, 25, 25);
+    margin-bottom: 20px;
+}
+
+.about h3 {
+    font-size: 28px;
+    color: rgba(75, 25, 25, 0.9);
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 18px;
+    color:rgb(96, 68, 47);
+    margin-bottom: 20px;
+}
+
+hr {
+    display: block; /* or inline, depending on your preference */
+    border: 1px solid #4f303045; /* Add a border to make it visible */
+    margin: 20px 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skills-list {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center skills list */
+    gap: 15px; /* Space between items */
+}
+
+.skills-list li {
+    background-color: burlywood; /*Use the same color as the button */
+    color: black;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.uni a:any-link {
+    color: rgb(83, 149, 83);
+    text-decoration:dashed;
+}
+
+.uni :is(a:hover, a:focus){
+    filter:brightness(1.22);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about h2 {
+        font-size: 28px;
+    }
+
+    .about p {
+        font-size: 16px;
+    }
+
+    .skills-list li {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+}
