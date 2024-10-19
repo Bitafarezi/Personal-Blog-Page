@@ -1,0 +1,233 @@
+
+/* || CSS RESET */
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+:root{
+    /* Color */
+    --LIGHT-COLOR:white;
+}
+
+
+/* Basic Header Styles */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #553105;
+    color: var(--LIGHT-COLOR);
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
+}
+
+/* Basic Navigation Styles */
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    flex-flow: row nowrap;
+}
+
+nav a:any-link{
+    color: wheat;
+    text-decoration: none;
+}
+
+nav :is(a:hover, a:focus){   /* pseudo class  :is  for hover and focus -- D.R.Y rule */
+    filter: brightness(1.2);
+    color: #915b19ea;
+}
+
+
+/* Hide Checkbox for Hamburger Toggle */
+
+.menu-toggle {
+    display: none;
+}
+
+
+/* Hamburger Menu Icon */
+
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    height: 3px;
+    width: 25px;
+    background: var(--LIGHT-COLOR);
+    margin: 5px 0;
+    transition: 0.4s;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+/* call to action button */
+
+.cta .button{
+    background-color: #b38663;
+    color: var(--LIGHT-COLOR);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.cta .button:hover {
+    background-color: hwb(24 37% 11% / 0.711);
+}
+
+/* Responsive Styles for Mobile */
+
+@media (max-width: 768px) {
+    /* Hide the normal navigation and display the hamburger icon */
+    .main-nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: #553105f8;
+        border: 1px solid rgb(97, 62, 15);
+        padding: 20px;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        left: 10px;
+        width: 200px;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    /* Toggle menu display when checkbox is checked */
+    .menu-toggle:checked + .menu-icon + .main-nav ul {
+        display: flex;
+    }
+
+    /* Hamburger animation when toggled */
+    .menu-toggle:checked + .menu-icon span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 8px);
+    }
+
+    .menu-toggle:checked + .menu-icon span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked + .menu-icon span:nth-child(3) {
+        transform: rotate(-45deg) translate(10px, -8px);
+    }
+}
+
+/* Contact Section Styles */
+.contact {
+    padding: 60px 20px;
+    background:linear-gradient(bisque, rgba(165, 42, 42, 0.471), wheat);
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(250, 245, 235, 0.683);
+    border-radius: 5px;
+    background-color: rgba(250, 245, 235, 0.683);
+}
+
+form button {
+    padding: 10px;
+    background-color: #b57442;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+form button:hover {
+    background-color: #b574427f; /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge the button */
+    box-shadow: 0 0 15px rgba(247, 128, 0, 0.529); /* Glow effect */
+}
+
+
+/* Footer Section*/
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(245, 222, 179, 0.909);
+    color: #333;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer a:any-link {
+    color: #553105;
+}
+
+footer :is(:hover, :focus){
+    filter: brightness(1.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:768px) {
+    form {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    } 
+}
+

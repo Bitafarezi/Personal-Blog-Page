@@ -1,0 +1,324 @@
+/* || CSS RESET */
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+:root{
+    /* Color */
+    --LIGHT-COLOR:white;
+}
+
+
+/* Basic Header Styles */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #553105;
+    color: var(--LIGHT-COLOR);
+    position:relative;
+    top: 0;
+    z-index: 1000; 
+}
+
+/* Basic Navigation Styles */
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    flex-flow: row nowrap;
+}
+
+nav a:any-link{
+    color: wheat;
+    text-decoration: none;
+}
+
+nav :is(a:hover, a:focus){   /* pseudo class  :is  for hover and focus -- D.R.Y rule */
+    filter: brightness(1.2);
+    color: #915b19ea;
+}
+
+
+/* Hide Checkbox for Hamburger Toggle */
+
+.menu-toggle {
+    display: none;
+}
+
+
+/* Hamburger Menu Icon */
+
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    height: 3px;
+    width: 25px;
+    background: var(--LIGHT-COLOR);
+    margin: 5px 0;
+    transition: 0.4s;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+/* call to action button */
+
+.cta .button{
+    background-color: #b38663;
+    color: var(--LIGHT-COLOR);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.cta .button:hover {
+    background-color: hwb(24 37% 11% / 0.711);
+}
+
+/* Responsive Styles for Mobile */
+
+@media (max-width: 768px) {
+    /* Hide the normal navigation and display the hamburger icon */
+    .main-nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: #553105f8;
+        border: 1px solid rgb(97, 62, 15);
+        padding: 20px;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        left: 10px;
+        width: 200px;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    /* Toggle menu display when checkbox is checked */
+    .menu-toggle:checked + .menu-icon + .main-nav ul {
+        display: flex;
+    }
+
+    /* Hamburger animation when toggled */
+    .menu-toggle:checked + .menu-icon span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 8px);
+    }
+
+    .menu-toggle:checked + .menu-icon span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked + .menu-icon span:nth-child(3) {
+        transform: rotate(-45deg) translate(10px, -8px);
+    }
+}
+
+body {
+    background: linear-gradient(90deg, rgb(210, 180, 140), rgb(229, 170, 112));
+    -webkit-background-clip: text;
+    background: url('/images/BackImage.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    background-clip: text;
+    background-color: rgb(210, 180, 140);
+}
+
+/* Tooltip wrapper */
+h3 {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Custom tooltip text */
+h3::after {
+    content: attr(data-tooltip); /* Get tooltip text from the data-tooltip attribute */
+    visibility: hidden;
+    opacity: 0;
+    width: 140px;
+    background-color: #f5f1f1;
+    color: #111;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Adjust this to position the tooltip above the text */
+    left: 50%;
+    margin-left: -70px; /* Center the tooltip */
+    transition: opacity 0.3s;
+    pointer-events: none; /* Prevent tooltip from being interacted with */
+}
+
+/* Tooltip arrow */
+h3::before {
+    content: '';
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Show the tooltip when hovering */
+h3:hover::after,
+h3:hover::before {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Skills Section */
+.skills {
+    font-family: 'Montserrat', sans-serif;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+
+.skills h2 {
+    font-size: 48px;
+    background: linear-gradient(90deg, brown, rgb(51, 33, 1)); /* Gradient background */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Makes the gradient apply to the text */
+    letter-spacing: 2px; /* Adds some space between letters */
+    text-transform: uppercase; /* Makes the text all uppercase */
+    position: relative;
+    margin-bottom: 40px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adds a shadow for depth */
+}
+
+
+.skills-description {
+    font-size: 16px;
+    color: 	rgb(111, 78, 55); /* Muted color for a balanced look */
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    font-weight: 300; /* Lighter weight for a subtle look */
+    text-align: center;
+    border: 0.5px 0px solid;;
+    box-shadow: 5px 10px 18px rgba(160, 81, 45, 0.937);
+    border-radius: 20px;
+    padding: 5px;
+}
+
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skill {
+    text-align: left;
+}
+
+.skill h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.skill-bar {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 20px;
+    animation: pulse 2s infinite; /* Subtle pulse effect */
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 5px rgba(66, 7, 7, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 10px rgb(66, 7, 7, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 5px rgb(66, 7, 7, 0.5);
+    }
+    
+}
+
+.skill-level {
+    height: 100%;
+    background-color: rgb(160, 82, 45);
+    width: 10%; /* Initial animation on page load */
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out; /* Smooth transition effect */
+}
+
+/* Skill Levels */
+/* Hover effect on the skill-bar to trigger the skill-level fill */
+.skill:hover .skill-level.html-skill {
+    width: 90%;
+}
+
+.skill:hover .skill-level.css-skill {
+    width: 85%;
+}
+
+.skill:hover .skill-level.js-skill {
+    width: 60%;
+}
+
+.skill:hover .skill-level.react-skill {
+    width: 50%;
+}
+
+/* Animation for the skill bars */
+/* .skill-level {
+    animation: fillBar 2s forwards;
+}
+
+@keyframes fillBar {
+    0% { width: 0; }
+    100% { width: inherit; }
+} */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skills-container {
+        gap: 15px;
+    }
+
+    .skill h3 {
+        font-size: 16px;
+    }
+
+    .skills h2 {
+        font-size: 28px;
+    }
+}
+
+    
+
